@@ -1,0 +1,19 @@
+{
+  "name": "متشابهات القرآن الكريم",
+  "short_name": "المتشابهات",
+  "description": "منصة تيسير حفظ وتثبيت متشابهات القرآن الكريم بالرسم العثماني والمقارنة التفاعلية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b1e",
+  "theme_color": "#0d2822",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

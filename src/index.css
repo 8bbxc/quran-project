@@ -1,0 +1,276 @@
+/* ==========================================================
+   متشابهات القرآن الكريم - Design System & CSS Variables
+   ========================================================== */
+
+:root {
+  /* Common Brand Colors */
+  --gold-primary: #d4af37;
+  --gold-light: #f5d77f;
+  --gold-dark: #aa820a;
+  --emerald-accent: #10b981;
+  --ruby-diff: #ef4444;
+  --amber-rule: #f59e0b;
+
+  /* Font Families */
+  --font-quran-amiri: 'Amiri Quran', serif;
+  --font-quran-scheherazade: 'Scheherazade New', serif;
+  --font-ui: 'Alexandria', 'Outfit', sans-serif;
+
+  --transition-speed: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+/* 🌙 Dark Mode (Default Luxury Islamic Theme) */
+[data-theme='dark'] {
+  --bg-app: #081214;
+  --bg-surface: #0e2024;
+  --bg-card: #132b31;
+  --bg-card-hover: #18373f;
+  --bg-muted: #1a3c45;
+  --border-color: rgba(212, 175, 55, 0.18);
+  --border-strong: rgba(212, 175, 55, 0.4);
+  
+  --text-main: #f0f7f7;
+  --text-muted: #8eaeb5;
+  --text-gold: #f3cf7a;
+
+  --diff-bg: rgba(245, 158, 11, 0.22);
+  --diff-border: rgba(245, 158, 11, 0.7);
+  --diff-text: #fde68a;
+  --diff-glow: rgba(245, 158, 11, 0.15);
+
+  --rule-bg: rgba(212, 175, 55, 0.08);
+  --rule-border: rgba(212, 175, 55, 0.35);
+
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --shadow-player: 0 -8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ☀️ Light Mode (Modern Clean Day Theme) */
+[data-theme='light'] {
+  --bg-app: #f8faf9;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f6f5;
+  --bg-muted: #e7eeec;
+  --border-color: #d1deda;
+  --border-strong: #96b8b0;
+  
+  --text-main: #132422;
+  --text-muted: #4e6b66;
+  --text-gold: #966f00;
+
+  --diff-bg: #fef3c7;
+  --diff-border: #d97706;
+  --diff-text: #78350f;
+  --diff-glow: rgba(217, 119, 6, 0.1);
+
+  --rule-bg: #fffbeb;
+  --rule-border: #fcd34d;
+
+  --shadow-card: 0 4px 20px rgba(19, 36, 34, 0.06);
+  --shadow-player: 0 -4px 25px rgba(19, 36, 34, 0.08);
+}
+
+/* 📜 Sepia Mode (Parchment Mus-haf Paper Theme) */
+[data-theme='sepia'] {
+  --bg-app: #f4ecd8;
+  --bg-surface: #ede3cb;
+  --bg-card: #faf5e8;
+  --bg-card-hover: #f3ebd5;
+  --bg-muted: #e2d6ba;
+  --border-color: #d1c19f;
+  --border-strong: #b59f71;
+  
+  --text-main: #2b1f14;
+  --text-muted: #695642;
+  --text-gold: #8f6515;
+
+  --diff-bg: #fed7aa;
+  --diff-border: #c2410c;
+  --diff-text: #7c2d12;
+  --diff-glow: rgba(194, 65, 12, 0.12);
+
+  --rule-bg: #fcf6e6;
+  --rule-border: #d5b97d;
+
+  --shadow-card: 0 4px 18px rgba(43, 31, 20, 0.07);
+  --shadow-player: 0 -4px 25px rgba(43, 31, 20, 0.1);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  direction: rtl;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Typography Classes */
+.font-quran {
+  line-height: 2.3;
+  text-align: justify;
+  text-align-last: center;
+  word-spacing: 2px;
+}
+
+.font-amiri-quran {
+  font-family: var(--font-quran-amiri);
+}
+.font-scheherazade {
+  font-family: var(--font-quran-scheherazade);
+}
+
+/* Diff Highlighting */
+.diff-token {
+  display: inline;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.diff-token.is-diff {
+  background-color: var(--diff-bg);
+  border-bottom: 2.5px solid var(--diff-border);
+  color: var(--diff-text);
+  font-weight: 700;
+  box-shadow: 0 2px 8px var(--diff-glow);
+  cursor: help;
+}
+
+.diff-token.is-diff:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Ayah End Symbol Badge */
+.ayah-end-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  vertical-align: middle;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+}
+
+/* Callout Mnemonic Box */
+.mnemonic-box {
+  background: var(--rule-bg);
+  border-right: 4px solid var(--gold-primary);
+  border-top: 1px solid var(--rule-border);
+  border-bottom: 1px solid var(--rule-border);
+  border-left: 1px solid var(--rule-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+
+/* Buttons and Interactive Elements */
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-speed);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: #081214;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold-primary);
+  color: var(--text-gold);
+  background: var(--bg-muted);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .card-print {
+    page-break-inside: avoid;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
